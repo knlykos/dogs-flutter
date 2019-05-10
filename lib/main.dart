@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vemax/dog_card.dart';
+import 'package:vemax/dog_list.dart';
 import 'package:vemax/dog_model.dart';
 
 void main() => runApp(MyApp());
@@ -68,11 +69,28 @@ class _MyHomePageState extends State<MyHomePage> {
           // Here we take the value from the MyHomePage object that was created by
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
+          backgroundColor: Colors.black87,
 
           // backgroundColor: Colors.black87,
         ),
         body: Container(
-          child: DogCard(initialDoggos[1]),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              stops: [0.1, 0.5, 0.7, 0.9],
+              colors: [
+                // Colors are easy thanks to Flutter's Colors class.
+                Colors.indigo[800],
+                Colors.indigo[700],
+                Colors.indigo[600],
+                Colors.indigo[400],
+              ],
+            ),
+          ),
+          child: Center(
+            child: DogList(initialDoggos),
+          ),
         ));
   }
 }
